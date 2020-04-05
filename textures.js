@@ -16,9 +16,9 @@ const Y_AXIS = 1;
 let skyColor1, skyColor2;
 
 
-let r = Math.random() * 10;
-let g = Math.random() * 10;
-let b = Math.random() * 10;
+let r = Math.random() * 120;
+let g = Math.random() * 125;
+let b = Math.random() * 105;
 
 function setup() {
   var canvas = createCanvas(480, 480);
@@ -31,6 +31,9 @@ function setup() {
   background(skyColor2);
 
   star = new Star();
+  bug0 = new Mountain(0, 9, 0, 4, .050, pixelWidth * 2);
+  bug00 = new Mountain(0, 15, 0, 4, .050, pixelWidth * 2);
+
   bug1 = new Mountain(0, heightSeed, 0, 4, mountainSeed, pixelWidth);
   bug2 = new Mountain(0, heightSeed - heightSub, 0, 4, mountainSeed / 1, pixelWidth);
   bug3 = new Mountain(0, heightSeed - (heightSub * 2), 0, 4, mountainSeed / 2, pixelWidth);
@@ -102,6 +105,25 @@ function draw() {
   }
   vertex(480, 480)
   endShape();
+
+  fill(r - 50, g - 50, b - 50);
+  beginShape();
+  vertex(0, 480);
+  for (j = 0; j < 480; j++) {
+    vertex(bug0.make());
+  }
+  vertex(480, 480)
+  endShape();
+
+  fill(10, 10, 10);
+  beginShape();
+  vertex(0, 480);
+  for (j = 0; j < 480; j++) {
+    vertex(bug00.make());
+  }
+  vertex(480, 480)
+  endShape();
+
 }
 
 class Mountain {
