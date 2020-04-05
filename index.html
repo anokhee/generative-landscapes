@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Biome</title>
+  <style>
+    body {
+      background-color: #050505;
+      display: block;
+      padding: 0;
+      margin: 0;
+    }
+
+  canvas, #sketch-container {
+    display: flex;
+    border-radius: 50%;
+    margin: 0 auto;
+    margin-top: 20px;
+  }
+
+  .palette-container {
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+    height: 60px;
+    padding: 20px;
+  }
+
+  .color {
+    height: 60px;
+    width: 60px;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+
+  .color:hover {
+    opacity: .55;
+  }
+
+  </style>
+  <script src="./addons/dat.gui.min.js"></script>
+  <script src="./addons/p5.min.js"></script>
+  <script src="./addons/p5.dom.min.js"></script>
+  <script src="textures.js"></script>
+</head>
+
+<body>
+
+  <div id="sketch-container">
+    <!-- Sketch lives in here. -->
+  </div>
+
+  <div class="palette-container">
+    <div class="color" style="background-color: #86e3ce"></div>
+    <div class="color" style="background-color: #d0e6a5"></div>
+    <div class="color" style="background-color: #ffdd94"></div>
+    <div class="color" style="background-color: #fa897b"></div>
+    <div class="color" style="background-color: #ccabd8"></div>
+  </div>
+</body>
+
+</html>
