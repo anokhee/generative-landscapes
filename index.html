@@ -9,6 +9,7 @@
     body {
       background-color: #070707;
       display: block;
+      font-family: monospace;
       padding: 0;
       margin: 0;
       animation: fadeInAnimation ease .5s;
@@ -41,18 +42,25 @@
       justify-content: center;
       height: 60px;
       padding: 20px;
+      margin-top: 10px;
+      margin-bottom: 40px;
     }
 
     .color {
       border-radius: 25%;
-      height: 50px;
-      width: 50px;
-      margin-left: 5px;
-      margin-right: 5px;
+      height: 45px;
+      width: 45px;
+      margin-left: 15px;
+      margin-right: 15px;
     }
 
     .color:hover {
       opacity: .55;
+    }
+
+    .color-label {
+      text-align: center;
+      font-weight: normal;
     }
   </style>
   <script src="./addons/dat.gui.min.js"></script>
@@ -67,11 +75,26 @@
   </div>
 
   <div class="palette-container">
-    <div class="color" id="color-1"></div>
-    <div class="color" id="color-2"></div>
-    <div class="color" id="color-3"></div>
-    <div class="color" id="color-4"></div>
-    <div class="color" id="color-5"></div>
+    <div class="color-container">
+      <div class="color" id="color-1"></div>
+      <p class="color-label" id="color-1-label">#</p>
+    </div>
+    <div class="color-container">
+      <div class="color" id="color-2"></div>
+      <p class="color-label" id="color-2-label">#</p>
+    </div>
+    <div class="color-container">
+      <div class="color" id="color-3"></div>
+      <p class="color-label" id="color-3-label">#</p>
+    </div>
+    <div class="color-container">
+      <div class="color" id="color-4"></div>
+      <p class="color-label" id="color-4-label">#</p>
+    </div>
+    <div class="color-container">
+      <div class="color" id="color-5"></div>
+      <p class="color-label" id="color-5-label">#</p>
+    </div>
     <!-- <button type="button" onclick="setup(); draw()">Click ME</button> -->
   </div>
 </body>
