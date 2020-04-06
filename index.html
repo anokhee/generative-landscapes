@@ -7,7 +7,7 @@
   <title>Interactive Biome</title>
   <style>
     body {
-      background-color: #050505;
+      background-color: #171717;
       display: block;
       padding: 0;
       margin: 0;
@@ -29,8 +29,9 @@
   }
 
   .color {
-    height: 60px;
-    width: 60px;
+    border-radius:25%;
+    height: 50px;
+    width: 50px;
     margin-left: 5px;
     margin-right: 5px;
   }
@@ -43,22 +44,22 @@
   <script src="./addons/dat.gui.min.js"></script>
   <script src="./addons/p5.min.js"></script>
   <script src="./addons/p5.dom.min.js"></script>
-  <script src="textures.js"></script>
 </head>
 
-<body>
+<body id="body">
 
   <div id="sketch-container">
     <!-- Sketch lives in here. -->
   </div>
 
   <div class="palette-container">
-    <div class="color" style="background-color: #86e3ce"></div>
-    <div class="color" style="background-color: #d0e6a5"></div>
-    <div class="color" style="background-color: #ffdd94"></div>
-    <div class="color" style="background-color: #fa897b"></div>
-    <div class="color" style="background-color: #ccabd8"></div>
+    <div class="color" id="color-1"></div>
+    <div class="color" id="color-2"></div>
+    <div class="color" id="color-3"></div>
+    <div class="color" id="color-4"></div>
+    <div class="color" id="color-5"></div>
   </div>
 </body>
+<script src="textures.js"></script>
 
 </html>
