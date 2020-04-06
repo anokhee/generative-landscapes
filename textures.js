@@ -1,8 +1,8 @@
 let bug1, bug2, bug3, bug4, bug5, bug6;
 let star;
-let mountainSeed = Math.random() * (0.010 - 0.002) + 0.002;
+let mountainSeed = Math.random() * (0.015 - 0.005) + 0.005;
 
-let heightSeed = Math.random() * (3.25 - 2.45) + 2.45;
+let heightSeed = Math.random() * (3.25 - 2.75) + 2.75;
 let heightSub = .25;
 
 let pixelWidth = 1;
@@ -11,17 +11,20 @@ let starCount = 0;
 let starSeed = Math.random() * 500;
 
 let moon;
+let moonyPos = Math.random() * (480/2.5);
+let moonRadius = Math.random() * moonyPos;
+let moonOffset = Math.random() * moonRadius;
+let moonXPos = Math.random() * ((480 - moonRadius * 4) - (moonRadius * 4)) + moonRadius * 4;
 
 const Y_AXIS = 1;
 let skyColor1, skyColor2;
 
-let r = Math.floor((Math.random() * 120));
-let g = Math.floor((Math.random() * 120));
-let b = Math.floor((Math.random() * 150));
-
+let r = Math.floor((Math.random() * 180));
+let g = Math.floor((Math.random() * 180));
+let b = Math.floor((Math.random() * 220));
 
 var body = document.getElementById('body');
-if ((r + g + b) <= 200){
+if ((r + g + b) <= 300) {
   body.style.backgroundColor = '#efefef';
 }
 
@@ -40,14 +43,21 @@ function setup() {
   var canvas = createCanvas(480, 480);
   canvas.parent('sketch-container');
   noStroke();
-  skyColor1 = color(r, g, b + 50);
-  skyColor2 = color(r + 100, g + 100, b + 30, 50);
+  skyColor1 = color(r - 10, g - 10, b + 50);
+  skyColor2 = color(r + 200, g + 200, b + 60, 50);
 
   w1 = color(255, 255, 255, 0);
-  w2 = color(200 + r, 200 + g, Math.floor(Math.random() * 180), 75);
+  w2 = color(200 + r, 200 + g, Math.random() * 50, 75);
 
   createCanvas(480, 480);
-  background(skyColor2);
+  background(skyColor1);
+  
+
+  // Make moon
+  fill(255, 255, 255, Math.random() * ((255 - 200) + 200));
+  ellipse(moonXPos, moonyPos, moonRadius);
+  fill(skyColor1);
+  ellipse(moonXPos + moonOffset, moonyPos, moonRadius);
 
   star = new Star();
   bug0 = new Mountain(0, 9, 0, 4, .008, pixelWidth * 2);
@@ -69,10 +79,10 @@ function draw() {
     makeStars(Math.random() * 1000);
   }
 
-  makeStars(random(300));
+  makeStars(Math.random()*(500));
 
   noStroke();
-  fill(r + 100, g + 100, b + 100);
+  fill(r + 60, g + 60, b + 60, 200);
   beginShape();
   vertex(0, 480);
   for (j = 0; j < 480; j++) {
@@ -82,7 +92,7 @@ function draw() {
   endShape();
 
 
-  fill(r + 80, g + 80, b + 80);
+  fill(r + 40, g + 40, b + 40);
   beginShape();
   vertex(0, 480);
   for (j = 0; j < 480; j++) {
@@ -96,7 +106,7 @@ function draw() {
 
   // Mountain set 4
 
-  fill(r + 60, g + 60, b + 60);
+  fill(r + 20, g + 20, b + 20);
   beginShape();
   vertex(0, 480);
   for (j = 0; j < 480; j++) {
@@ -110,7 +120,7 @@ function draw() {
 
   // Mountain set 3
 
-  fill(r + 40, g + 40, b + 40);
+  fill(r, g, b);
   beginShape();
   vertex(0, 480);
   for (j = 0; j < 480; j++) {
@@ -124,7 +134,7 @@ function draw() {
 
   // Mountain set 2
 
-  fill(r + 20, g + 20, b + 20);
+  fill(r - 20, g - 20, b - 20);
   beginShape();
   vertex(0, 480);
   for (j = 0; j < 480; j++) {
@@ -138,7 +148,7 @@ function draw() {
 
   // Mountain set 1 
 
-  fill(r, g, b);
+  fill(r - 40, g - 40, b - 40);
   beginShape();
   vertex(0, 480);
   for (j = 0; j < 480; j++) {
@@ -207,21 +217,18 @@ function setGradient(x, y, w, h, c1, c2, axis) {
   }
 }
 
-
 // Make color palette
-var color1 = document.getElementById('color-1'); 
+var color1 = document.getElementById('color-1');
 color1.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
 
-var color2 = document.getElementById('color-2'); 
+var color2 = document.getElementById('color-2');
 color2.style.backgroundColor = `rgb(${r}, ${g}, ${b + 50})`;
 
-var color3 = document.getElementById('color-3'); 
+var color3 = document.getElementById('color-3');
 color3.style.backgroundColor = `rgb(${r + 100}, ${g + 100}, ${b + 30})`;
 
-var color4 = document.getElementById('color-4'); 
+var color4 = document.getElementById('color-4');
 color4.style.backgroundColor = `rgb(${100 + r}, ${100 + g}, ${Math.floor(Math.random() * 180)}`;
 
-var color5 = document.getElementById('color-5'); 
+var color5 = document.getElementById('color-5');
 color5.style.backgroundColor = `rgb(${r + 120}, ${g + 120}, ${b + 120})`;
-
-

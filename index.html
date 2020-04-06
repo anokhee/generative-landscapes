@@ -7,39 +7,53 @@
   <title>Interactive Biome</title>
   <style>
     body {
-      background-color: #171717;
+      background-color: #070707;
       display: block;
       padding: 0;
       margin: 0;
+      animation: fadeInAnimation ease .5s;
+      animation-iteration-count: 1;
+      animation-fill-mode: both;
+      animation-timing-function: linear;
     }
 
-  canvas, #sketch-container {
-    display: flex;
-    border-radius: 50%;
-    margin: 0 auto;
-    margin-top: 20px;
-  }
+    @keyframes fadeInAnimation {
+      0% {
+        opacity: 0;
+      }
 
-  .palette-container {
-    display: flex;
-    margin: 0 auto;
-    justify-content: center;
-    height: 60px;
-    padding: 20px;
-  }
+      100% {
+        opacity: 1;
+      }
+    }
 
-  .color {
-    border-radius:25%;
-    height: 50px;
-    width: 50px;
-    margin-left: 5px;
-    margin-right: 5px;
-  }
+    canvas,
+    #sketch-container {
+      display: flex;
+      border-radius: 50%;
+      margin: 0 auto;
+      margin-top: 20px;
+    }
 
-  .color:hover {
-    opacity: .55;
-  }
+    .palette-container {
+      display: flex;
+      margin: 0 auto;
+      justify-content: center;
+      height: 60px;
+      padding: 20px;
+    }
 
+    .color {
+      border-radius: 25%;
+      height: 50px;
+      width: 50px;
+      margin-left: 5px;
+      margin-right: 5px;
+    }
+
+    .color:hover {
+      opacity: .55;
+    }
   </style>
   <script src="./addons/dat.gui.min.js"></script>
   <script src="./addons/p5.min.js"></script>
@@ -58,6 +72,7 @@
     <div class="color" id="color-3"></div>
     <div class="color" id="color-4"></div>
     <div class="color" id="color-5"></div>
+    <!-- <button type="button" onclick="setup(); draw()">Click ME</button> -->
   </div>
 </body>
 <script src="textures.js"></script>
