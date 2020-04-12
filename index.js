@@ -11,10 +11,10 @@ let starCount = 0;
 let starSeed = Math.random() * 500;
 
 let moon;
-let moonyPos = Math.random() * (480 / 3);
-let moonRadius = Math.random() * moonyPos * 2;
-let moonOffset = Math.random() * moonRadius;
-let moonXPos = Math.random() * ((480 - moonRadius * 4) - (moonRadius * 4)) + moonRadius * 4;
+let moonyPos;
+let moonRadius;
+let moonOffset;
+let moonXPos;
 
 const Y_AXIS = 1;
 let skyColor1, skyColor2;
@@ -38,30 +38,26 @@ if ((r + g + b) <= 300) {
   body.style.backgroundColor = '#131313';
 }
 
-console.log(labels);
-
-console.log(`
-1. ${r}, ${g}, ${b}
-2. ${r}, ${g}, ${b + 50}
-3. ${r + 100}, ${g + 100}, ${b + 30}
-4. ${200 + r}, ${200 + g}, ${randomBlue}}
-5. ${r + 120}, ${g + 120}, ${b + 120}`);
-
-
 let w1;
 let w2;
+let width = 500; 
+let height = 500;
 
 function setup() {
-  var canvas = createCanvas(480, 480);
+  var canvas = createCanvas(width, height);
   canvas.parent('sketch-container');
   noStroke();
+  moonyPos = Math.random() * (height / 2 - height/3) + height/3;
+  moonRadius = Math.random() * moonyPos/2;
+  moonOffset = Math.random() * moonRadius;
+  moonXPos = (Math.random() * ((width - moonRadius) - (moonRadius)) + moonRadius);
   skyColor1 = color(r - 10, g - 10, b + 50);
   skyColor2 = color(r + 200, g + 200, b + 60, 50);
 
   w1 = color(255, 255, 255, 0);
   w2 = color(200 + r, 200 + g, randomBlue, 75);
 
-  createCanvas(480, 480);
+  createCanvas(width, height);
   background(skyColor1);
 
 
@@ -81,95 +77,98 @@ function setup() {
   bug4 = new Mountain(0, heightSeed - (heightSub * 2), 0, 4, mountainSeed / 3, pixelWidth);
   bug5 = new Mountain(0, heightSeed - (heightSub * 2.5), 0, 4, mountainSeed / 4, pixelWidth);
   bug6 = new Mountain(0, heightSeed - (heightSub * 3), 0, 4, mountainSeed / 8, pixelWidth);
-  setGradient(0, 0, 480, 480, skyColor1, skyColor2, Y_AXIS);
+  setGradient(0, 0, width, height, skyColor1, skyColor2, Y_AXIS);
   noLoop();
 }
 
 function draw() {
   noStroke();
-  for (i = 0; i < 480; i++) {
+  for (i = 0; i < width; i++) {
     makeStars(Math.random() * 1000);
   }
 
   makeStars(Math.random() * (500));
 
   noStroke();
-  fill(r + 60, g + 60, b + 60, 200);
+  fill(r + 50, g + 50, b + 50);
   beginShape();
-  vertex(0, 480);
-  for (j = 0; j < 480; j++) {
+  vertex(0, height);
+  for (j = 0; j < width; j++) {
     vertex(bug6.make());
   }
-  vertex(480, 480)
+  vertex(width, height)
   endShape();
+
+  setGradient(0, height - 600, width, 600, w1, w2, Y_AXIS);
+  noStroke();
 
 
   fill(r + 40, g + 40, b + 40);
   beginShape();
-  vertex(0, 480);
-  for (j = 0; j < 480; j++) {
+  vertex(0, height);
+  for (j = 0; j < width; j++) {
     vertex(bug5.make());
   }
-  vertex(480, 480)
+  vertex(width, height)
   endShape();
 
-  setGradient(0, 480 - 500, 480, 500, w1, w2, Y_AXIS);
+  setGradient(0, height - 500, width, 500, w1, w2, Y_AXIS);
   noStroke();
 
   // Mountain set 4
 
   fill(r + 20, g + 20, b + 20);
   beginShape();
-  vertex(0, 480);
-  for (j = 0; j < 480; j++) {
+  vertex(0, height);
+  for (j = 0; j < width; j++) {
     vertex(bug4.make());
   }
-  vertex(480, 480)
+  vertex(width, height)
   endShape();
 
-  setGradient(0, 480 - 400, 480, 400, w1, w2, Y_AXIS);
+  setGradient(0, height - 400, width, 400, w1, w2, Y_AXIS);
   noStroke();
 
   // Mountain set 3
 
   fill(r, g, b);
   beginShape();
-  vertex(0, 480);
-  for (j = 0; j < 480; j++) {
+  vertex(0, height);
+  for (j = 0; j < width; j++) {
     vertex(bug3.make());
   }
-  vertex(480, 480)
+  vertex(width, height)
   endShape();
 
-  setGradient(0, 480 - 300, 480, 300, w1, w2, Y_AXIS);
+  setGradient(0, height - 300, width, 300, w1, w2, Y_AXIS);
   noStroke();
 
   // Mountain set 2
 
   fill(r - 20, g - 20, b - 20);
   beginShape();
-  vertex(0, 480);
-  for (j = 0; j < 480; j++) {
+  vertex(0, height);
+  for (j = 0; j < width; j++) {
     vertex(bug2.make());
   }
-  vertex(480, 480)
+  vertex(width, height)
   endShape();
 
-  setGradient(0, 480 - 200, 480, 200, w1, w2, Y_AXIS);
+  setGradient(0, height - 200, width, 200, w1, w2, Y_AXIS);
   noStroke();
 
   // Mountain set 1 
 
   fill(r - 40, g - 40, b - 40);
   beginShape();
-  vertex(0, 480);
-  for (j = 0; j < 480; j++) {
+  vertex(0, height);
+  for (j = 0; j < width; j++) {
     vertex(bug1.make());
   }
-  vertex(480, 480)
+  vertex(width, height)
   endShape();
 
-  setGradient(0, 480 - 100, 480, 100, w1, w2, Y_AXIS);
+  setGradient(0, height - 100, width, 100, w1, w2, Y_AXIS);
   noStroke();
 }
 

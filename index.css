@@ -1,0 +1,73 @@
+body {
+    animation: fadeInAnimation ease .5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+    animation-timing-function: linear;
+    background-color: #070707;
+    display: block;
+    font-family: monospace;
+    padding: 0;
+    margin: 0;
+}
+
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+canvas,
+#sketch-container {
+    display: flex;
+    border-radius: 50%;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.palette-container {
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+    height: 60px;
+    padding: 20px;
+    margin-top: 5px;
+    margin-bottom: 40px;
+}
+
+.color {
+    border-radius: 25%;
+    height: 45px;
+    width: 45px;
+    margin-left: 18px;
+    margin-right: 18px;
+}
+
+.color:hover {
+    opacity: .55;
+}
+
+.color-label {
+    text-align: center;
+    font-weight: normal;
+}
+
+@media only screen and (max-width: 800px) {
+    body {
+        max-width: 100vw !important;
+        max-height: 100vh !important;
+        padding: 50px;
+    }
+
+    canvas {
+        width: 80vw !important;
+        height: 80vw !important;
+    }
+
+    .palette-container {
+        margin: 0 auto;
+    }
+}
