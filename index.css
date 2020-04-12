@@ -58,14 +58,14 @@ canvas,
 
 @media only screen and (max-width: 800px) {
     body {
-        max-width: 100vw !important;
-        max-height: 100vh !important;
-        padding: 50px;
+     max-width: 100vw;
+     max-height: 100vh;
+     padding-top: 25px;
     }
 
     canvas {
-        width: 85vw !important;
-        height: 85vw !important;
+        width: 88vw !important;
+        height: 88vw !important;
     }
 
     .palette-container {
@@ -74,9 +74,9 @@ canvas,
     }
 
     .color {
-        width: 40px !important;
-        height: 40px !important;
-        margin: 10px;
+        width: 35px !important;
+        height: 35px !important;
+        margin: 12px;
     }
 
     .color-label {
