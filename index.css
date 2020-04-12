@@ -29,6 +29,7 @@ canvas,
 }
 
 .palette-container {
+    max-width: 500px;
     display: flex;
     margin: 0 auto;
     justify-content: center;
@@ -63,11 +64,22 @@ canvas,
     }
 
     canvas {
-        width: 80vw !important;
-        height: 80vw !important;
+        width: 85vw !important;
+        height: 85vw !important;
     }
 
     .palette-container {
         margin: 0 auto;
+        max-width: 300px !important;
+    }
+
+    .color {
+        width: 40px !important;
+        height: 40px !important;
+        margin: 10px;
+    }
+
+    .color-label {
+        font-size: 12px;
     }
 }
