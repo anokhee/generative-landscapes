@@ -5,9 +5,32 @@ body {
     animation-timing-function: linear;
     background-color: #070707;
     display: block;
-    font-family: monospace;
+    font-family: 'Inconsolata', monospace;
+    font-size: 14px;
+    letter-spacing: .035em;
     padding: 0;
     margin: 0;
+}
+
+button {
+    background: none;
+    border: 1px solid #fefefe;
+    color: #fefefe;
+    font-family: 'Inconsolata', monospace;
+    font-size: 13px;
+    letter-spacing: .08em;
+    margin-bottom: 50px;
+    margin-top: 12px;
+    padding: 8px;
+    padding-left: 80px;
+    padding-right: 80px;
+    text-transform: uppercase;
+}
+
+canvas {
+    display: flex;
+    border-radius: 50%;
+    margin: 0 auto;
 }
 
 @keyframes fadeInAnimation {
@@ -20,12 +43,26 @@ body {
     }
 }
 
-canvas,
-#sketch-container {
-    display: flex;
-    border-radius: 50%;
-    margin: 0 auto;
-    margin-top: 20px;
+.color {
+    border-radius: 25%;
+    height: 40px;
+    width: 40px;
+    margin-left: 22px;
+    margin-right: 22px;
+}
+
+.color-label {
+    text-align: center;
+    font-weight: normal;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    height: 80px;
+    width: 100%;
+    text-align: center;
 }
 
 .palette-container {
@@ -35,51 +72,62 @@ canvas,
     justify-content: center;
     height: 60px;
     padding: 20px;
-    margin-top: 5px;
-    margin-bottom: 40px;
+    margin-top: 10px;
+    margin-bottom: 30px;
 }
 
-.color {
-    border-radius: 25%;
-    height: 45px;
-    width: 45px;
-    margin-left: 18px;
-    margin-right: 18px;
-}
 
-.color:hover {
-    opacity: .55;
-}
-
-.color-label {
-    text-align: center;
-    font-weight: normal;
-}
 
 @media only screen and (max-width: 800px) {
     body {
-     max-width: 100vw;
-     max-height: 100vh;
-     padding-top: 25px;
+        max-width: 100vw;
+        max-height: 100vh;
+    }
+
+    button {
+        margin-top: 0px;
     }
 
     canvas {
-        width: 88vw !important;
-        height: 88vw !important;
-    }
-
-    .palette-container {
-        margin: 0 auto;
-        max-width: 300px !important;
+        width: 89vw !important;
+        height: 89vw !important;
     }
 
     .color {
         width: 35px !important;
         height: 35px !important;
-        margin: 12px;
+        margin: 15px;
     }
 
     .color-label {
-        font-size: 12px;
+        font-size: 13px;
     }
+
+    .palette-container {
+        margin: 0 auto;
+        max-width: 300px !important;
+        margin-bottom: 40px;
+    }
+}
+
+
+#navbar {
+    height: 80px;
+    overflow: hidden;
+
+}
+
+/* Navbar links */
+#navbar a {
+    float: left;
+    display: block;
+    color: #bbb;
+    text-align: center;
+    padding-top: 20px;
+    padding-left: 20px;
+    text-decoration: none;
+}
+
+#navbar a:hover {
+    color: #aaa;
 }

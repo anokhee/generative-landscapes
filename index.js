@@ -1,54 +1,57 @@
-let bug1, bug2, bug3, bug4, bug5, bug6;
-let star;
-let mountainSeed = Math.random() * (0.015 - 0.005) + 0.005;
+let width = 470;
+let height = 470;
 
-let heightSeed = Math.random() * (3.25 - 2.75) + 2.75;
-let heightSub = .25;
+var bug1, bug2, bug3, bug4, bug5, bug6;
+var star;
+var mountainSeed = Math.random() * (0.015 - 0.005) + 0.005;
+var heightSeed = Math.random() * (height * .005 - 2.75) + 2.75;
+var heightSub = .25;
 
-let pixelWidth = 1;
+var pixelWidth = 1;
 
-let starCount = 0;
-let starSeed = Math.random() * 500;
+var starCount = 0;
+var starSeed = Math.random() * 500;
 
-let moon;
-let moonyPos;
-let moonRadius;
-let moonOffset;
-let moonXPos;
+var moon;
+var moonyPos;
+var moonRadius;
+var moonOffset;
+var moonXPos;
 
-const Y_AXIS = 1;
-let skyColor1, skyColor2;
-var randomBlue = Math.floor(Math.random() * 50);
+var Y_AXIS = 1;
+var skyColor1, skyColor2;
+var randomBlue = Math.floor(Math.random() * 150);
 
-let r = Math.floor((Math.random() * 180));
-let g = Math.floor((Math.random() * 180));
-let b = Math.floor((Math.random() * 220));
+var r = Math.floor((Math.random() * 200));
+var g = Math.floor((Math.random() * 200));
+var b = Math.floor((Math.random() * 220));
+var w1;
+var w2;
 
 var body = document.getElementById('body');
 var labels = document.getElementsByClassName('color-label');
+var button = document.getElementById('btn');
 if ((r + g + b) <= 300) {
-  for (i = 0; i < labels.length; i++){
+  for (i = 0; i < labels.length; i++) {
     labels[i].style.color = '#131313';
   }
   body.style.backgroundColor = '#efefef';
+  button.style.color = '#131313';
+  button.style.border = '1px solid #131313';
 } else {
-  for (i = 0; i < labels.length; i++){
+  for (i = 0; i < labels.length; i++) {
     labels[i].style.color = '#efefef';
   }
   body.style.backgroundColor = '#131313';
 }
 
-let w1;
-let w2;
-let width = 500; 
-let height = 500;
 
 function setup() {
   var canvas = createCanvas(width, height);
   canvas.parent('sketch-container');
   noStroke();
-  moonyPos = Math.random() * (height / 2 - height/3) + height/3;
-  moonRadius = Math.random() * moonyPos/2;
+  moonyPos = Math.random() * (height / 2 - height / 3) + height / 3;
+  moonRadius = Math.random() * moonyPos / 2;
   moonOffset = Math.random() * moonRadius;
   moonXPos = (Math.random() * ((width - moonRadius) - (moonRadius)) + moonRadius);
   skyColor1 = color(r - 10, g - 10, b + 50);
@@ -202,7 +205,7 @@ class Star {
   }
 
   draw() {
-    let randSize = random(3);
+    var randSize = random(3);
     fill(255, 255, 255, random(0, 200));
     ellipse(this.xPos, this.yPos, randSize, randSize);
   }
@@ -210,7 +213,7 @@ class Star {
 
 function makeStars(numStars) {
   if (starCount < numStars) {
-    let s = new Star(int(random(width)), int(random(height / 1.8)));
+    var s = new Star(int(random(width)), int(random(height / 1.8)));
     s.draw();
   }
   starCount++;
@@ -219,9 +222,9 @@ function makeStars(numStars) {
 function setGradient(x, y, w, h, c1, c2, axis) {
   noFill();
   if (axis === Y_AXIS) {
-    for (let i = y; i <= y + h; i++) {
-      let inter = map(i, y, y + h, 0, 1);
-      let c = lerpColor(c1, c2, inter);
+    for (var i = y; i <= y + h; i++) {
+      var inter = map(i, y, y + h, 0, 1);
+      var c = lerpColor(c1, c2, inter);
       stroke(c);
       line(x, i, x + w, i);
     }

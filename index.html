@@ -8,6 +8,7 @@
   <script src="./addons/dat.gui.min.js"></script>
   <script src="./addons/p5.min.js"></script>
   <script src="./addons/p5.dom.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="index.css">
 </head>
 
@@ -17,6 +18,7 @@
     <!-- Sketch lives in here. -->
   </div>
 
+  <div id="show"></div>
   <div class="palette-container">
     <div class="color-container">
       <div class="color" id="color-1"></div>
@@ -39,7 +41,12 @@
       <p class="color-label" id="color-5-label">#</p>
     </div>
   </div>
+
+  <div class="footer" onClick="location.reload()">
+    <button id="btn">Generate New</button>
+  </div>
 </body>
+
 <script src="index.js"></script>
 
 </html>
