@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mountains Palette Generator</title>
+  <script src="./addons/p5.min.js"></script>
+  <script src="./addons/p5.dom.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="index.css">
+</head>
+
+<body id="body">
+
+  <div id="sketch-container">
+    <!-- Sketch lives in here. -->
+  </div>
+
+  <div id="show"></div>
+  <div class="palette-container">
+    <div class="color-container">
+      <div class="color tooltip" id="color-1" onClick="copyStringToClipboard(event)" onmouseout="outFunc(event)">
+        <span class="tooltiptext" id="myTooltip">Copy</span>
+      </div>
+      <p class="color-label" id="color-1-label">#</p>
+    </div>
+    <div class="color-container">
+      <div class="color tooltip" id="color-2" onClick="copyStringToClipboard(event)" onmouseout="outFunc(event)">
+        <span class="tooltiptext" id="myTooltip">Copy</span>
+      </div>
+      <p class="color-label" id="color-2-label">#</p>
+    </div>
+    <div class="color-container">
+      <div class="color tooltip" id="color-3" onClick="copyStringToClipboard(event)" onmouseout="outFunc(event)">
+        <span class="tooltiptext" id="myTooltip">Copy</span>
+      </div>
+      <p class="color-label" id="color-3-label">#</p>
+    </div>
+    <div class="color-container">
+      <div class="color tooltip" id="color-4" onClick="copyStringToClipboard(event)" onmouseout="outFunc(event)">
+        <span class="tooltiptext" id="myTooltip">Copy</span>
+      </div>
+      <p class="color-label" id="color-4-label">#</p>
+    </div>
+    <div class="color-container">
+      <div class="color tooltip" id="color-5" onClick="copyStringToClipboard(event)" onmouseout="outFunc(event)">
+        <span class="tooltiptext" id="myTooltip">Copy</span>
+      </div>
+      <p class="color-label" id="color-5-label">#</p>
+    </div>
+  </div>
+
+  <div class="footer" onClick="location.reload()">
+    <button id="btn">Generate New</button>
+  </div>
+</body>
+
+<script src="index.js"></script>
+<script src="palette.js"></script>
+
+</html>

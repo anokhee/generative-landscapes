@@ -1,0 +1,172 @@
+body {
+    animation: fadeInAnimation ease .5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+    animation-timing-function: linear;
+    background-color: #070707;
+    display: block;
+    font-family: 'Inconsolata', monospace;
+    font-size: 14px;
+    letter-spacing: .035em;
+    padding: 0;
+    margin: 0;
+}
+
+button {
+    background: none;
+    border: 1px solid #fefefe;
+    color: #fefefe;
+    font-family: 'Inconsolata', monospace;
+    font-size: 13px;
+    letter-spacing: .08em;
+    margin-bottom: 50px;
+    margin-top: 12px;
+    padding: 8px;
+    padding-left: 80px;
+    padding-right: 80px;
+    text-transform: uppercase;
+}
+
+canvas {
+    display: flex;
+    border-radius: 50%;
+    margin: 0 auto;
+}
+
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.color {
+    border-radius: 25%;
+    height: 40px;
+    width: 40px;
+    margin-left: 22px;
+    margin-right: 22px;
+}
+
+.color-label {
+    text-align: center;
+    font-weight: normal;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    height: 80px;
+    width: 100%;
+    text-align: center;
+}
+
+.palette-container {
+    max-width: 500px;
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+    height: 60px;
+    padding: 20px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+
+
+@media only screen and (max-width: 800px) {
+    body {
+        max-width: 100vw;
+        max-height: 100vh;
+    }
+
+    button {
+        margin-top: 0px;
+    }
+
+    canvas {
+        width: 89vw !important;
+        height: 89vw !important;
+    }
+
+    .color {
+        width: 35px !important;
+        height: 35px !important;
+        margin: 15px;
+    }
+
+    .color-label {
+        font-size: 13px;
+    }
+
+    .palette-container {
+        margin: 0 auto;
+        max-width: 300px !important;
+        margin-bottom: 40px;
+    }
+}
+
+
+#navbar {
+    height: 80px;
+    overflow: hidden;
+
+}
+
+/* Navbar links */
+#navbar a {
+    float: left;
+    display: block;
+    color: #bbb;
+    text-align: center;
+    padding-top: 20px;
+    padding-left: 20px;
+    text-decoration: none;
+}
+
+#navbar a:hover {
+    color: #aaa;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    visibility: visible;
+    width: 60px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    top: 125%;
+    left: 50%;
+    margin-left: -35px;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  
+  .tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent #555 transparent;
+  }
+  
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+  }
