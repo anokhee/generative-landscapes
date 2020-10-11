@@ -6,33 +6,29 @@ canvas.width = w;
 canvas.height = h;
 ctx.strokeStyle = `rgba(0, 0, 0, 0)`;
 
-let mtnIterations = Math.floor(Math.random() * (7 - 6) + 6);
+let mtnIterations = 5;
 let mtnAmplitude = Math.random() * 100;
 let mtnWavelength = 10;
 let mtnDivisor = 100;
 let mtnHeightMax = h / 4;
 let mtnHeightMin = h / 3;
 let mtnHeight = Math.random() * (mtnHeightMax - mtnHeightMin) + mtnHeightMin;
-let baseRGB = [`${Math.floor(Math.random() * 150)}`,
-    `${Math.floor(Math.random() * 150)}`,
-    `${Math.floor(Math.random() * 150)}`
+let baseRGB = [Math.floor(Math.random() * 250),
+    Math.floor(Math.random() * 250),
+    Math.floor(Math.random() * 250)
 ];
 
 let skyColor1 = [
-    Math.floor(parseInt(baseRGB[0]) + Math.random() * (55 - -55) + -55),
-    Math.floor(parseInt(baseRGB[1]) + Math.random() * (55 - -55) + -55),
-    Math.floor(parseInt(baseRGB[2]) + Math.random() * (100))
+    Math.floor((baseRGB[0]) - 10),
+    Math.floor((baseRGB[1]) - 10),
+    Math.floor((baseRGB[2]) + 50)
 ];
-let skyColor2 = [skyColor1[0] + 120, skyColor1[1] + 120, skyColor1[2] + 40];
+let skyColor2 = [skyColor1[0] + 200, skyColor1[1] + 200, skyColor1[2] + 60];
 setBackground(`rgba(${skyColor1})`, `rgba(${skyColor2})`, w, h);
-
-let overlayBlue = Math.floor(Math.random() * 150);
-let whiteOverlay1 = [255, 255, 255, 0];
-let whiteOverlay2 = [parseInt(baseRGB[0]) + 200, parseInt(baseRGB[1]) + 200, parseInt(overlayBlue), 0.35];
 
 for (let i = 1; i < mtnIterations; i++) {
     let mtnRh = Math.random() * (70 - 35) + 35;
-    ctx.fillStyle = `rgba(${255 - baseRGB[0] - (i * 45)}, ${255 - baseRGB[1] - (i * 45)}, ${255 - baseRGB[2] - (i * 45)}, 1`;
+    ctx.fillStyle = `rgba(${baseRGB[0] - (35 * i)}, ${baseRGB[1] - (35 * i)}, ${baseRGB[2] - (35 * i)}, 1)`;
     generateMountainRange(mtnAmplitude * mtnIterations * .1, mtnWavelength * (mtnIterations - i),
         10, mtnDivisor, w, (mtnHeight) + (i * mtnRh), i);
 };
@@ -46,15 +42,6 @@ function generateMountainRange(amp, wl, octaves, divisor, width, rh, i) {
     ctx.fill();
     ctx.stroke();
     ctx.closePath();
-
-    ctx.beginPath();
-    ctx.rect(0, h, w, h - (rh * i) * 2.25);
-    let whiteOverlay = ctx.createLinearGradient(0, h, 0, 0);
-    whiteOverlay.addColorStop(1, `rgba(${whiteOverlay1})`);
-    whiteOverlay.addColorStop(0, `rgba(${whiteOverlay2})`);
-    ctx.fillStyle = whiteOverlay;
-    ctx.fill();
-    ctx.stroke();
 }
 
 function setBackground(c1, c2, w, h) {
